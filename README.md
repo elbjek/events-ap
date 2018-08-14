@@ -2,6 +2,8 @@
 
 - Database zip is in the database folder.
 
-##to start
->> npm run watch
->> php -S localhost:3000;
+To start run 
+
+> npm run watch
+and
+> php -S localhost:3000;
