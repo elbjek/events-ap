@@ -12,17 +12,16 @@ class PagesController
         return view('index', compact('events'));
     }
 
-    public function concert()
+    public function singleevent()
     {
         $events = App::get('database')->getOne('events', $_GET['id']);
-        return view('concert', compact('events'));
+        return view('singleevent', compact('events'));
     }
     
     public function ticket()
     {
-        $tickets = App::get('database')->getAllTickets($_GET['id'] );
-
-        return view('ticket', compact('tickets'));
+        $events = App::get('database')->getAllOfEach('events', $_GET['id'] );
+        return view('ticket', compact('events'));
     }
 
     public function apiEvents()

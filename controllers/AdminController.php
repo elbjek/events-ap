@@ -14,7 +14,6 @@ class AdminController
 
     public function createVenue()
     {
-        // $categories = App::get('database')->getAll("categories");
         return view('admin.createVenue');
     }
     public function storeVenue()
@@ -37,15 +36,26 @@ class AdminController
         App::get('database')->addNew('events', $_POST);
         return redirect('/admin/events');
     }
-    
+    public function createPrice()
+    {
+             return view('admin.createPrice');
+    }
+    public function storePrice()
+    {
 
+        App::get('database')->addNew('prices', $_POST);
+        return redirect('/admin/events');
+    }
 
-
-    // public function show()
-    // {
-    //     $events = App::get('database')->getAllTickets($_GET['id']);  
-    //     return view('admin.show', compact('events'));
-    // }
+    public function createSeating()
+    {
+             return view('admin.createSeating');
+    }
+    public function storeSeating()
+    {
+        App::get('database')->addNew('seatings', $_POST);
+        return redirect('/admin/events');
+    }
 
     public function edit()
     {
@@ -80,6 +90,11 @@ class AdminController
     public function getUser()
     {
         return view('admin.partials.profile', compact('users'));
+    }
+    public function allOfOne()
+    {
+        $events = App::get('database')->getAllOfEach('events', $_GET['id'] );
+        return view('admin.show', compact('events','event'));
     }
 
 }

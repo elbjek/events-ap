@@ -41,31 +41,51 @@ class QueryBuilder
     
     public function update($table, $payload)
     {
-        $_POST = str_replace('T', ' ', $_POST);
+
+        $dt = str_replace('T', ' ', $_POST['date_time']);
+        $_POST = str_replace($_POST['date_time'], $dt, $_POST);
+        $long_desc = str_replace('"', '\"', $_POST['long_desc']);
+        $short_desc = str_replace('"', '\"', $_POST['short_desc']);
+
+        $_POST = str_replace($_POST['long_desc'],$long_desc,$_POST);
+
         $id = $_POST['id'];
         unset($_POST['id']);
 
         $variables = "";
         
         foreach($_POST as $key =>  $element) {
-            $variables.= $key . "='" . $element . "', " ;
+            $variables.= $key . '="' . $element . '", ' ;
         }  
 
         $variables = substr($variables, 0, -2);
         $sql = "UPDATE {$table} SET {$variables} WHERE id = '{$id}'";
+  
         $query = $this->pdo->prepare($sql);
+        var_dump($query);
         $query->execute();
 
     }
 
     public function getOne($table, $id, $model = "")
     {
-        $query = $this->pdo->prepare("SELECT * FROM {$table} WHERE id='{$id}'");
+        $query = $this->pdo->prepare("SELECT * FROM {$table} WHERE prices_id='{$id}'");
+        // dd($query);
         $query->execute();
         if($model) {
             return $query->fetch(\PDO::FETCH_CLASS, $model);
         } else {
             return $query->fetch(\PDO::FETCH_OBJ);
+        }
+    }
+    public function getAllOfEach($table, $id, $model = "")
+    {   
+        $query = $this->pdo->prepare("SELECT * FROM {$table}  LEFT JOIN seatings ON seatings.id = events.seatings_id LEFT JOIN prices ON prices.id = events.prices_id LEFT JOIN venues ON venues.id = events.venues_id  WHERE venues_id='$id'");
+        $query->execute();
+        if($model) {
+            return $query->fetchAll(\PDO::FETCH_CLASS, $model);
+        } else {
+            return $query->fetchAll(\PDO::FETCH_OBJ);
         }
     }
 
@@ -83,7 +103,8 @@ class QueryBuilder
 
     public function destroy($table, $id)
     {
-        $query = $this->pdo->prepare("DELETE FROM {$table} WHERE id='{$id}'");
+        $query = $this->pdo->prepare("DELETE FROM {$table} WHERE prices_id='{$id}'");
+
         $query->execute();
     }
 
