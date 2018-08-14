@@ -1,0 +1,14 @@
+.login{
+    background: linear-gradient(to right, #C2D076, #F9A03F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height:90vh;
+    .form{
+        background-color: white;
+        padding:30px;
+        border-radius: 8px;
+        a{
+            color:$black;
+            font-size: 14px;
+            margin:0px 10px;
+        }
+    }
+}

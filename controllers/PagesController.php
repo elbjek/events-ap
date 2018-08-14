@@ -8,13 +8,14 @@ class PagesController
 {
     public function home()
     {
-        $events = App::get('database')->getAll("events");
+        $events = App::get('database')->getThree("events");
+        // dd($events);
         return view('index', compact('events'));
     }
 
     public function singleevent()
     {
-        $events = App::get('database')->getOne('events', $_GET['id']);
+        $events = App::get('database')->getOneEvent('events', $_GET['id']);
         return view('singleevent', compact('events'));
     }
     

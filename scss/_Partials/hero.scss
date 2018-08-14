@@ -1,0 +1,29 @@
+.jumbotron{
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to bottom, #C2D076, #F9A03F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    &::before{
+        content:'';
+        height: 100%;
+        width:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        overflow: hidden;
+        z-index: -1;
+       
+    }
+    h1{
+        margin-top:10%;
+        text-align: center;
+        font-weight: 900;
+        font-size: 7em;
+        color:$white;
+    }
+    p{
+        // margin-top:30px;
+        margin-bottom: 5%;
+        text-align: center;
+        color:$white;
+    }
+}

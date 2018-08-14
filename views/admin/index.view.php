@@ -1,9 +1,5 @@
-<?php
 
-//dd(getcwd());
-?>
 <?php require "views/partials/header.view.php";  ?>
-
 
 <a href="/admin/events/event" class="btn btn-primary">Add new event</a>
 

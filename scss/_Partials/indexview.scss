@@ -1,0 +1,33 @@
+.index{
+    padding:90px 0px 90px 0px; 
+    h2{
+        font-weight: 600;
+    }
+    .card{
+        margin:10px 0px;
+        // margin:0 auto;
+        .img{
+            max-height:300px;
+            width:auto;
+            overflow: hidden;
+            img{
+                max-height: 300px;
+            }
+        }
+        h5{
+            font-weight: 900;
+            font-size: 30px
+        }
+        a{
+            color:$black;
+            font-weight: 600;
+            border-radius: 5px;
+            background-color: $orange;
+            &:hover{
+                background-color: $green;
+                color:$black;
+                font-weight: 900;
+            }
+        }
+    }
+}

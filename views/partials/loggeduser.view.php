@@ -1,11 +1,11 @@
 <?php if(isset($_SESSION['auth'])): ?>
-
-<nav class=" wrapper userbar reset d-flex justify-content-end ">
-        <ul class="nav reset">
-                <li class="nav-item reset dropdown">
-                        <a class="nav-link reset dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Hi, <?=$_SESSION["auth"]->username;?>
-                        </a>
+<nav class="usernav">
+        <ul class=" max-width d-flex justify-content-end ">
+                <li class="nav-item reset dropdown d-flex ">
+                <p>Hi, &nbsp;</p> 
+                <a class="nav-link reset dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?=$_SESSION["auth"]->username;?>
+                </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
 
                                 <a class="nav-link dropdown-item" href="/admin/profile?id=<?= $_SESSION["auth"]->id ?>">

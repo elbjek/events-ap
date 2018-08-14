@@ -23,6 +23,17 @@ class QueryBuilder
             return $query->fetchAll(\PDO::FETCH_OBJ);
         }
     }
+    public function getThree($table, $model = "")
+    {
+        $query = $this->pdo->prepare("SELECT * FROM {$table} ORDER BY {$table}.date_time");
+        $query->execute();
+
+        if($model) {
+            return $query->fetchAll(\PDO::FETCH_CLASS, $model);
+        } else {
+            return $query->fetchAll(\PDO::FETCH_OBJ);
+        }
+    }
 
     public function addNew($table,$payload)
     {
@@ -70,6 +81,16 @@ class QueryBuilder
     public function getOne($table, $id, $model = "")
     {
         $query = $this->pdo->prepare("SELECT * FROM {$table} WHERE prices_id='{$id}'");
+        $query->execute();
+        if($model) {
+            return $query->fetch(\PDO::FETCH_CLASS, $model);
+        } else {
+            return $query->fetch(\PDO::FETCH_OBJ);
+        }
+    }
+    public function getOneEvent($table, $id, $model = "")
+    {
+        $query = $this->pdo->prepare("SELECT * FROM {$table} WHERE id='{$id}'");
         // dd($query);
         $query->execute();
         if($model) {

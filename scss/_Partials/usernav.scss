@@ -1,0 +1,21 @@
+.usernav{
+    background-color: $white;
+    ul{
+        li{
+            display: inline;
+            padding:8px 0px;
+            p{
+                margin:0;
+                padding:0;
+            }
+            a{
+                color:$black;
+                font-weight: 600;
+                &:hover{
+                    color:$orange;
+                }
+
+            }
+        }
+    }
+}

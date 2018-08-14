@@ -1,0 +1,21 @@
+.navigation{
+    background-color: $white;
+    ul{
+        text-align:left;
+        width:1440px;
+        margin:0 auto;
+        li{
+            padding:10px 0px;
+            a{
+                color:$black;
+                font-weight: 500;
+                border-bottom: 2px solid transparent;
+                &:hover{
+                    font-weight: 700;
+                    color:$black;
+                    border-bottom: 2px solid $orange;
+                }
+            }
+        }
+    }
+}

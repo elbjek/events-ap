@@ -1,24 +1,32 @@
 
 <?php require "partials/header.view.php"; ?>
-<h1>Latest events</h1>
-<div class="row">
-    <?php foreach ($events as $event):?> 
+<?php require "partials/hero.view.php"; ?>
 
-    <?php if($event->prices_id==1):?>
+<div class="index max-width ">
+    <h2>Latest events</h2>
+    <div class="row justify-content between">
+        <?php foreach ($events as $event):?> 
 
-    <div class="card col-md-4">
-        <img class="card-img-top"  src="storage/<?= $event->image ?>">
-        <div class="card-body">
-            <h5 class="card-title"><?= $event->artist ?></h5>
-            <p class="card-text"><?= $event->short_desc ?></p>
-            <a href="/concert?id=<?= $event->venues_id ?>" class="btn btn-primary">Show</a> 
-        </div>
-    </div>   
+        <?php if($event->prices_id==1):?>
 
-       <?php endif; ?>
-     <?php endforeach; ?>
+        <div class="card col-md-4">
+            <div class="img card-img-top">
+                <img src="storage/<?= $event->image ?>">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><?= $event->artist ?></h5>
+            <?php if(strlen($event->short_desc) > 125): ?>
+                <p class="card-text"><?= substr($event->short_desc,0,125) ?> ...</p>
+            <?php endif; ?>
+                <a href="/concert?id=<?= $event->id ?>" class="btn" >See more</a> 
+            </div>
+        </div>   
+
+        <?php endif; ?>
+        <?php endforeach; ?>
 
 
+    </div>
 </div>
 
 <?php require "partials/footer.view.php" ?>
