@@ -8,12 +8,12 @@
 
     <div class="card col-md-4">
         <!-- <img class="card-img-top" src="<?= $events->image ?>" alt="Card image cap"> -->
-        <p><?= $events->date?></p>
-        <p><?= $events->time?></p>
         <div class="card-body">
-            <h5 class="card-title"><?= $events->title ?></h5>
-            <p class="card-text"><?= $events->description ?></p>
-    
+            <h5 class="card-title"><?= $events->artist ?></h5>
+            <p class="card-text"><?= $events->short_desc ?></p>
+            <p class="card-text"><?= $events->long ?></p>
+            <p><?= $events->date?></p>
+            <p><?= $events->time?></p>
             <a href="/concert/tickets?id=<?= $events->id ?>"  class="btn btn-primary">Tickets</a>
         </div>
     </div>

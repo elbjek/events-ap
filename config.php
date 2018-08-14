@@ -2,7 +2,7 @@
 
 return [
     'database' => [
-        'name' => 'events',
+        'name' => 'events_db',
         'user' => 'root',
         'password' => '',
         'hostname' => '127.0.0.1'

@@ -23,40 +23,37 @@ class AdminController
         return redirect('/admin/events');
     }
 
+    public function createEvent()
+    {
+             $seatings = App::get('database')->getAll('seatings');
+             $venues = App::get('database')->getAll('venues');
+             $prices = App::get('database')->getAll('prices');
+             return view('admin.createEvent',compact('seatings','venues', 'prices'));
+    }
+
     public function storeEvent()
     {
+        $this->handleUpload();
         App::get('database')->addNew('events', $_POST);
         return redirect('/admin/events');
     }
     
-    public function createEvent()
-    {
-             $venues = App::get('database')->getAll("venues");
-             return view('admin.createEvent', compact('venues'));
-    }
-        public function createTicket()
-    {
-            $seatings = App::get('database')->getAll("seatings");
-             $venues = App::get('database')->getAll("venues");
-             return view('admin.ticket', compact('seatings','venues') );
-    }
-    public function storeTicket()
-    {
-            App::get('database')->addNew('venue_seating', $_POST);
-            return redirect('/admin/events');
-    }
 
-    public function show()
-    {
-        $events = App::get('database')->getAllTickets($_GET['id']); //ako hoces da dobijes sve moras da mu napravis query koji nece traziti id 
-        return view('admin.show', compact('events'));
-    }
+
+
+    // public function show()
+    // {
+    //     $events = App::get('database')->getAllTickets($_GET['id']);  
+    //     return view('admin.show', compact('events'));
+    // }
 
     public function edit()
     {
         $events = App::get('database')->getOne('events', $_GET['id']);
-        $tickets = App::get('database')->getOne('tickets', $_GET['id']);
-        return view('admin.edit', compact('events', 'tickets'));
+        $seatings = App::get('database')->getAll('seatings');
+        $venues = App::get('database')->getAll('venues');
+        $prices = App::get('database')->getAll('prices');
+        return view('admin.edit', compact('events', 'seatings','venues', 'prices'));
     }
 
     public function update()
@@ -76,6 +73,7 @@ class AdminController
             $newName = "images/".time()."_".$_FILES['image']['name'];
             $_POST['image'] = $newName;
             move_uploaded_file($_FILES['image']['tmp_name'], getcwd()."/storage/".$newName);
+            // dd( getcwd()."/storage/".$newName);
         }
     }
        

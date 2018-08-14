@@ -16,7 +16,7 @@
 
     <li class="nav-item">        
         <?php if(!isset($_SESSION['auth'])): ?>
-            <a class="nav-link" href="/admin/login">Sign up</a>
+            <a class="nav-link" href="/admin/signup">Sign up</a>
         <?php endif;?>
     </li>
 

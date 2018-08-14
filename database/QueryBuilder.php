@@ -32,25 +32,30 @@ class QueryBuilder
             implode(", ", array_keys($payload)),
             ":" . implode(", :", array_keys($payload))
         );
-
+        // dd($sql);
         $query = $this->pdo->prepare($sql); 
+        // dd($query);
         $query->execute($payload);
 
     }
     
     public function update($table, $payload)
     {
+        $_POST = str_replace('T', ' ', $_POST);
         $id = $_POST['id'];
         unset($_POST['id']);
 
         $variables = "";
+        
         foreach($_POST as $key =>  $element) {
-             $variables.= $key . "='" . $element . "', ";
-        }
+            $variables.= $key . "='" . $element . "', " ;
+        }  
+
         $variables = substr($variables, 0, -2);
         $sql = "UPDATE {$table} SET {$variables} WHERE id = '{$id}'";
         $query = $this->pdo->prepare($sql);
         $query->execute();
+
     }
 
     public function getOne($table, $id, $model = "")

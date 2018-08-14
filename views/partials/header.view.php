@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
-   <link rel="stylesheet" href="/Webpack/public/assets/css/style.css">
- 
-
+    <link rel="stylesheet" href="/Webpack/public/assets/css/style.css">
 </head>
 <body>
 <!-- <section class="section"> -->
     <div class="container-fluid reset">
+
     <?php require 'nav.view.php' ?>

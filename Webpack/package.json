@@ -9,12 +9,13 @@
     "watch": "npm run build -- --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lena Bjekovic",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "jquery": "^3.3.1",
-    "npm": "^6.0.0"
+    "moment": "^2.22.2",
+    "npm": "^6.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -25,7 +26,7 @@
     "browser-sync-webpack-plugin": "^2.2.2",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.7.0",

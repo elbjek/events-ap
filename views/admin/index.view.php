@@ -16,23 +16,25 @@
 <table class="table table-striped">
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Thumbnail</th>
+        <th>Name</th>   
+        <th>Image</th>   
+        <th>Short Description</th>
+        <th>Long Description</th>
         <th>City</th>
-        <th>Date</th>
-        <th>Time</th>
+        <th>Date and Time</th>
+        <th>Price ID</th>
         <th>Actions</th>
     </tr>
     <?php foreach ($events as $event): ?>
     <tr>
         <td><?= $event->id ?></td>
-        <td><?= $event->title ?></td>
-        <td><?= substr($event->description, 0, 50) ?>...</td>
-        <td><img src="/storage/<?= $event->image ?>" alt="" width="150"></td>
+        <td><?= $event->artist ?></td>
+        <td><img src="/storage/<?= $event->image ?>" alt="" height="100px"></td>
+        <td><?= substr($event->short_desc, 0, 50) ?>...</td>
+        <td><?= substr($event->long_desc, 0, 50) ?>...</td>        
         <td><?= $event->city ?></td>
-        <td><?= $event->date ?></td>
-        <td><?= $event->time ?></td>
+        <td><?= $event->date_time ?></td>
+        <td><?= $event->prices_id ?></td>
         <td><a href="/admin/events/show?id=<?= $event->id ?>">Show</a> | <a href="/admin/events/edit?id=<?= $event->id ?>">Edit</a> | <form action="/admin/events/destroy" method="post"><button class="btn">
         <input type="hidden" name="id" value="<?= $event->id ?>">Delete</button></form></td>
     </tr>
