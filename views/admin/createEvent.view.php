@@ -1,6 +1,8 @@
 <?php require "views/partials/header.view.php"; ?>
 
-    <form action="/admin/events/event" method="POST" enctype="multipart/form-data">
+  <div class="max-width">
+  <div class=" row reset d-flex justify-content-end"><a href="/admin/events" class="btn back">Back to all</a></div>
+  <form action="/admin/events/event" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
         <label for="artist">Artist name</label>
@@ -67,6 +69,8 @@
     <button class="btn btn-primary">Submit</button>
     <button type="reset" class="btn btn-danger">Reset</button>
 
-</form>
+</form>  
+  
+  </div>
 
 <?php require "views/partials/footer.view.php"; ?>

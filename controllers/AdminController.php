@@ -34,7 +34,7 @@ class AdminController
     {
         $this->handleUpload();
         App::get('database')->addNew('events', $_POST);
-        return redirect('/admin/events');
+        return redirect('/admin/events/');
     }
     public function createPrice()
     {
