@@ -1,9 +1,10 @@
 .usernav{
-    background-color: $white;
+    background-color: white;
     ul{
         li{
             display: inline;
             padding:8px 0px;
+            margin:0px !important;
             p{
                 margin:0;
                 padding:0;

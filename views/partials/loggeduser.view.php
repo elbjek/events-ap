@@ -1,7 +1,7 @@
 <?php if(isset($_SESSION['auth'])): ?>
 <nav class="usernav">
         <ul class=" max-width d-flex justify-content-end ">
-                <li class="nav-item reset dropdown d-flex ">
+                <li class="nav-item reset dropdown   d-flex ">
                 <p>Hi, &nbsp;</p> 
                 <a class="nav-link reset dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?=$_SESSION["auth"]->username;?>
